@@ -11,9 +11,9 @@ import javax.faces.context.FacesContext;
 
 import org.primefaces.event.SelectEvent;
 
-@ManagedBean(name = "listaUsuarioViewedScopeBean")
+@ManagedBean(name = "listaUsuarioViewScopedBean")
 @ViewScoped
-public class ListaUsuarioViewedScopeBean implements Serializable{
+public class ListaUsuarioViewScopedBean implements Serializable{
 	
 	private static final long serialVersionUID = -1167294922350840116L;
 
@@ -25,7 +25,7 @@ public class ListaUsuarioViewedScopeBean implements Serializable{
 
 	private Usuario selectedUser;
 
-	public ListaUsuarioViewedScopeBean() {
+	public ListaUsuarioViewScopedBean() {
 		usuariosModel = new UsuarioDataModel(getUsuarios());
 	}
 

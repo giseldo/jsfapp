@@ -6,13 +6,13 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.ViewScoped;
 
-@ManagedBean(name="listaEscopoVisao")
+@ManagedBean(name="incluirUsuarioViewScoped")
 @ViewScoped
-public class InputEscopoVisao implements Serializable{
+public class IncluirUsuarioViewScoped implements Serializable{
 	
 	private static final long serialVersionUID = 8938854896390863587L;
 
-	public InputEscopoVisao() {
+	public IncluirUsuarioViewScoped() {
 		
 	}
 	

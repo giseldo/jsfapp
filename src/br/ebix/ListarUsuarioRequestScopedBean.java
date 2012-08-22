@@ -12,8 +12,8 @@ import javax.faces.context.FacesContext;
 
 import org.primefaces.event.SelectEvent;
 
-@ManagedBean(name = "listaUsuarioRequestScopedBean")
-@RequestScoped
+@ManagedBean(name = "listarUsuarioRequestScopedBean")
+@ViewScoped
 public class ListarUsuarioRequestScopedBean implements Serializable{
 	
 	private static final long serialVersionUID = 3549175577858802869L;

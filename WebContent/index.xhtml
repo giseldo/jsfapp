@@ -9,13 +9,17 @@
 <h:body>
 	<h:outputText value="olá mundo, hi!" />
 	<br />
-	<h:link value="Novo usuario" outcome="usuario"></h:link>
+	<h:link value="Lista Usuario Escopo Requisição"
+		outcome="listaUsuarioRequestedScope.xhtml"></h:link>
 	<br />
-	<h:link value="Lista Usuario Escopo Requisição" outcome="listaUsuarioRequestedScope.xhtml"></h:link>
+	<h:link value="Lista Usuario Escopo Visão"
+		outcome="listaUsuarioViewedScope.xhtml"></h:link>
 	<br />
-	<h:link value="Lista Usuario Escopo Visão" outcome="listaUsuarioViewedScope.xhtml"></h:link>
-	<br />
-	<h:link value="Entrada escopo visão" outcome="inputViewedScoped"></h:link>
+	<h:link value="Incluir Usuario Escopo de visão"
+		outcome="inputViewedScoped"></h:link>
+
+	<h:link value="Incluir Usuario Escopo de requisição"
+		outcome="inputViewedScoped"></h:link>
 </h:body>
 
 </html>

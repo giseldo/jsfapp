@@ -10,13 +10,13 @@ import javax.faces.context.FacesContext;
 
 import org.primefaces.event.SelectEvent;
 
-@ManagedBean(name = "usuarioBean")
+@ManagedBean(name = "incluirUsuarioRequestScoped")
 @RequestScoped
-public class UsuarioBean {
+public class IncluirUsuarioRequestScoped {
 
 	private String confirmaSenha;
-	private List<UsuarioBean> usuarios;
-	private UsuarioBean usuarioSelecionado;
+	private List<IncluirUsuarioRequestScoped> usuarios;
+	private IncluirUsuarioRequestScoped usuarioSelecionado;
 	private Usuario usuario;
 
 	public String novo() {
@@ -49,11 +49,11 @@ public class UsuarioBean {
 	}
 
 
-	public UsuarioBean getUsuarioSelecionado() {
+	public IncluirUsuarioRequestScoped getUsuarioSelecionado() {
 		return usuarioSelecionado;
 	}
 
-	public void setUsuarioSelecionado(UsuarioBean usuarioSelecionado) {
+	public void setUsuarioSelecionado(IncluirUsuarioRequestScoped usuarioSelecionado) {
 		this.usuarioSelecionado = usuarioSelecionado;
 	}
 	
@@ -65,7 +65,7 @@ public class UsuarioBean {
 		this.confirmaSenha = confirmaSenha;
 	}
 	
-	public void setUsuarios(List<UsuarioBean> usuarios) {
+	public void setUsuarios(List<IncluirUsuarioRequestScoped> usuarios) {
 		this.usuarios = usuarios;
 	}
 
