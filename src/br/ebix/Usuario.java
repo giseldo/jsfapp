@@ -34,12 +34,4 @@ public class Usuario implements Serializable{
 		this.senha = senha;
 	}
 
-	public String getConfirmaSenha() {
-		return confirmaSenha;
-	}
-
-	public void setConfirmaSenha(String confirmaSenha) {
-		this.confirmaSenha = confirmaSenha;
-	}
-
 }

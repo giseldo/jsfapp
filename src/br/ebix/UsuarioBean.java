@@ -57,22 +57,6 @@ public class UsuarioBean {
 		this.usuarioSelecionado = usuarioSelecionado;
 	}
 	
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public String getSenha() {
-		return senha;
-	}
-
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
-
 	public String getConfirmaSenha() {
 		return confirmaSenha;
 	}
@@ -80,25 +64,20 @@ public class UsuarioBean {
 	public void setConfirmaSenha(String confirmaSenha) {
 		this.confirmaSenha = confirmaSenha;
 	}
-
-	public String getEmail() {
-		return email;
+	
+	public void setUsuarios(List<UsuarioBean> usuarios) {
+		this.usuarios = usuarios;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+	public List<Usuario> getUsuarios() {
 
+		List<Usuario> users = new ArrayList<Usuario>();
 
-	public List<UsuarioBean> getUsuarios() {
-
-		List<UsuarioBean> users = new ArrayList<UsuarioBean>();
-
-		UsuarioBean user = new UsuarioBean();
+		Usuario user = new Usuario();
 		user.setNome("giseldo");
 		user.setEmail("giseldo@gmail.com");
 
-		UsuarioBean user2 = new UsuarioBean();
+		Usuario user2 = new Usuario();
 		user2.setNome("alana");
 		user2.setEmail("alana@gmail.com");
 
@@ -107,10 +86,6 @@ public class UsuarioBean {
 
 		return users;
 
-	}
-
-	public void setUsuarios(List<UsuarioBean> usuarios) {
-		this.usuarios = usuarios;
 	}
 
 }
