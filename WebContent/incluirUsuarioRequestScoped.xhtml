@@ -16,7 +16,7 @@
 		<h:panelGrid columns="2">
 
 			<h:outputLabel value="Nome:" for="nome" />
-			<h:inputText id="nome" label="Nome" value="#{incluirUsuarioViewScoped.usuario.nome}"
+			<h:inputText id="nome" label="Nome" value="#{incluirUsuarioRequestScoped.usuario.nome}"
 				required="true"></h:inputText>
 			<h:outputLabel value="Email:" for="email" />
 			<h:inputText id="email" label="Email" value="#{incluirUsuarioRequestScoped.usuario.email}"
@@ -28,7 +28,7 @@
 			<h:inputSecret id="confirmarsenha" label="Confirmar Senha"
 				value="#{incluirUsuarioRequestScoped.confirmaSenha}" required="true"></h:inputSecret>
 			<h:outputText />
-			<h:commandButton action="#{incluirUsuarioRequestScopedn.salvar}" value="salvar"></h:commandButton>
+			<h:commandButton action="#{incluirUsuarioRequestScoped.salvar}" value="salvar"></h:commandButton>
 		
 		</h:panelGrid>
 

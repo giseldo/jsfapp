@@ -3,7 +3,6 @@ package br.ebix;
 import java.io.Serializable;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
 import javax.faces.bean.ViewScoped;
 
 @ManagedBean(name="incluirUsuarioViewScoped")

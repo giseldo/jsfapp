@@ -15,8 +15,8 @@ import org.primefaces.event.SelectEvent;
 public class IncluirUsuarioRequestScoped {
 
 	private String confirmaSenha;
-	private List<IncluirUsuarioRequestScoped> usuarios;
-	private IncluirUsuarioRequestScoped usuarioSelecionado;
+	private List<Usuario> usuarios;
+	private Usuario usuarioSelecionado;
 	private Usuario usuario;
 
 	public String novo() {
@@ -48,15 +48,6 @@ public class IncluirUsuarioRequestScoped {
 		FacesContext.getCurrentInstance().addMessage("Ola", msg);
 	}
 
-
-	public IncluirUsuarioRequestScoped getUsuarioSelecionado() {
-		return usuarioSelecionado;
-	}
-
-	public void setUsuarioSelecionado(IncluirUsuarioRequestScoped usuarioSelecionado) {
-		this.usuarioSelecionado = usuarioSelecionado;
-	}
-	
 	public String getConfirmaSenha() {
 		return confirmaSenha;
 	}
@@ -65,10 +56,18 @@ public class IncluirUsuarioRequestScoped {
 		this.confirmaSenha = confirmaSenha;
 	}
 	
-	public void setUsuarios(List<IncluirUsuarioRequestScoped> usuarios) {
+	public Usuario getUsuarioSelecionado() {
+		return usuarioSelecionado;
+	}
+
+	public void setUsuarioSelecionado(Usuario usuarioSelecionado) {
+		this.usuarioSelecionado = usuarioSelecionado;
+	}
+
+	public void setUsuarios(List<Usuario> usuarios) {
 		this.usuarios = usuarios;
 	}
-	
+
 	public Usuario getUsuario() {
 		return usuario;
 	}
