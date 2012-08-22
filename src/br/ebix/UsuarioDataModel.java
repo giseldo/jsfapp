@@ -21,13 +21,15 @@ public class UsuarioDataModel extends ListDataModel<Usuario> implements Selectab
 	
 	
 	@Override
-	public Usuario getRowData(String arg0) {
+	public Usuario getRowData(String rowkey) {
 		
-		List<Usuario> usuarios = (List<Usuario>)getWrappedData();
+		@SuppressWarnings("unchecked")
+		List<Usuario> usuarios = (List<Usuario>) getWrappedData();
 		
-//		for (Usuario usuario : usuarios) {
-//			
-//		}
+		for (Usuario usuario : usuarios) {
+			if (usuario.equals(rowkey))
+				return usuario;
+		}
 		
 		return null;
 	}

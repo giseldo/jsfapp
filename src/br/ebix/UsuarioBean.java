@@ -14,12 +14,10 @@ import org.primefaces.event.SelectEvent;
 @RequestScoped
 public class UsuarioBean {
 
-	private String nome;
-	private String email;
-	private String senha;
 	private String confirmaSenha;
 	private List<UsuarioBean> usuarios;
 	private UsuarioBean usuarioSelecionado;
+	private Usuario usuario;
 
 	public String novo() {
 		return "usuario";
@@ -36,7 +34,7 @@ public class UsuarioBean {
 
 	public String salvar() {
 		FacesContext context = FacesContext.getCurrentInstance();
-		if (!this.senha.equalsIgnoreCase(this.confirmaSenha)) {
+		if (!this.usuario.getSenha().equalsIgnoreCase(this.confirmaSenha)) {
 			context.addMessage(null, new FacesMessage(
 					FacesMessage.SEVERITY_ERROR,
 					"Senha confirmada incorretamente", ""));
