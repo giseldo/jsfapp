@@ -16,19 +16,19 @@
 		<h:panelGrid columns="2">
 
 			<h:outputLabel value="Nome:" for="nome" />
-			<h:inputText id="nome" label="Nome" value="#{usuarioBean.nome}"
+			<h:inputText id="nome" label="Nome" value="#{incluirUsuarioViewScoped.usuario.nome}"
 				required="true"></h:inputText>
 			<h:outputLabel value="Email:" for="email" />
-			<h:inputText id="email" label="Email" value="#{usuarioBean.email}"
+			<h:inputText id="email" label="Email" value="#{incluirUsuarioRequestScoped.usuario.email}"
 				required="true"></h:inputText>
 			<h:outputLabel value="Senha:" for="senha" />
-			<h:inputSecret id="senha" label="Senha" value="#{usuarioBean.senha}"
+			<h:inputSecret id="senha" label="Senha" value="#{incluirUsuarioRequestScoped.usuario.senha}"
 				required="true"></h:inputSecret>
 			<h:outputLabel value="Confirmar Senha:" for="confirmarSenha" />
 			<h:inputSecret id="confirmarsenha" label="Confirmar Senha"
-				value="#{usuarioBean.confirmaSenha}" required="true"></h:inputSecret>
+				value="#{incluirUsuarioRequestScoped.confirmaSenha}" required="true"></h:inputSecret>
 			<h:outputText />
-			<h:commandButton action="#{usuarioBean.salvar}" value="salvar"></h:commandButton>
+			<h:commandButton action="#{incluirUsuarioRequestScopedn.salvar}" value="salvar"></h:commandButton>
 		
 		</h:panelGrid>
 

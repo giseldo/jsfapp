@@ -16,11 +16,11 @@
 	
 		<p:growl id="growl" showDetail="true"></p:growl>
 
-		<p:dataTable var="user" value="#{listaUsuarioViewedScopeBean.usuariosModel}"
-			selectionMode="single" selection="#{listaUsuarioViewedScopeBean.selectedUser}">
+		<p:dataTable var="user" value="#{listaUsuarioViewScopedBean.usuariosModel}"
+			selectionMode="single" selection="#{listaUsuarioViewScopedBean.selectedUser}">
 			
-			<p:ajax event="rowSelect" oncomplete="carro.show()" update=":frm:display :frm:growl" listener="#{listaUsuarioViewedScopeBean.onRowSelected}"></p:ajax>
-			<p:ajax event="rowUnselect" oncomplete="carro.show()" update=":frm:growl" listener="#{listaUsuarioViewedScopeBean.rowUnselect}"></p:ajax>
+			<p:ajax event="rowSelect" oncomplete="carro.show()" update=":frm:display :frm:growl" listener="#{listaUsuarioViewScopedBean.onRowSelected}"></p:ajax>
+			<p:ajax event="rowUnselect" oncomplete="carro.show()" update=":frm:growl" listener="#{listaUsuarioViewScopedBean.rowUnselect}"></p:ajax>
 			
 			<p:column headerText="nome">
 				<h:outputText value="#{user.nome}"></h:outputText>
@@ -37,8 +37,8 @@
 
 			<h:panelGrid id="display" columns="2" cellpadding="4">
 				<f:facet name="header"></f:facet>
-				<h:outputText value="#{listaUsuarioViewedScopeBean.selectedUser.nome}"></h:outputText>
-				<h:outputText value="#{listaUsuarioViewedScopeBean.selectedUser.email}"></h:outputText>
+				<h:outputText value="#{listaUsuarioViewScopedBean.selectedUser.nome}"></h:outputText>
+				<h:outputText value="#{listaUsuarioViewScopedBean.selectedUser.email}"></h:outputText>
 			</h:panelGrid>
 
 		</p:dialog>

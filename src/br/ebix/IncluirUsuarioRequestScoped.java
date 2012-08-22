@@ -68,6 +68,14 @@ public class IncluirUsuarioRequestScoped {
 	public void setUsuarios(List<IncluirUsuarioRequestScoped> usuarios) {
 		this.usuarios = usuarios;
 	}
+	
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
 
 	public List<Usuario> getUsuarios() {
 
@@ -87,5 +95,5 @@ public class IncluirUsuarioRequestScoped {
 		return users;
 
 	}
-
+	
 }
