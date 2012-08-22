@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Usuario cadastrado</title>
+</h:head>
+
+<h:body>
+
+	<h:form id="frm">
+	
+		<p:growl id="growl" showDetail="true"></p:growl>
+
+		<p:dataTable var="user" value="#{listaUsuarioBean.usuariosModel}"
+			selectionMode="single" selection="#{listaUsuarioBean.selectedUser}">
+			
+			<p:ajax event="rowSelect" oncomplete="carro.show()" update=":frm:display :frm:growl" listener="#{listaUsuarioBean.onRowSelected}"></p:ajax>
+			<p:ajax event="rowUnselect" oncomplete="carro.show()" update=":frm:growl" listener="#{listaUsuarioBean.rowUnselect}"></p:ajax>
+			
+			<p:column headerText="nome">
+				<h:outputText value="#{user.nome}"></h:outputText>
+			</p:column>
+
+			<p:column headerText="email">
+				<h:outputText value="#{user.email}"></h:outputText>
+			</p:column>
+
+		</p:dataTable>
+
+		<p:dialog id="dialog" header="Detalhe do usuario" widgetVar="carro"
+			resizable="false" showEffect="explode" hideEffect="explode">
+
+			<h:panelGrid id="display" columns="2" cellpadding="4">
+				<f:facet name="header"></f:facet>
+				<h:outputText value="#{listaUsuarioBean.selectedUser.nome}"></h:outputText>
+				<h:outputText value="#{listaUsuarioBean.selectedUser.email}"></h:outputText>
+			</h:panelGrid>
+
+		</p:dialog>
+
+	</h:form>
+
+</h:body>
+
+</html>

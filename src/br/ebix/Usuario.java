@@ -1,7 +1,11 @@
 package br.ebix;
 
-public class Usuario {
+import java.io.Serializable;
 
+public class Usuario implements Serializable{
+	
+	private static final long serialVersionUID = 437026715676365195L;
+	
 	private String nome;
 	private String email;
 	private String senha;
