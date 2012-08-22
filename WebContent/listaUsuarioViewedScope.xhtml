@@ -5,7 +5,7 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-	<title>Usuario cadastrado</title>
+	<title>lista usuario escopo de visão</title>
 </h:head>
 
 <h:body>
@@ -14,11 +14,11 @@
 	
 		<p:growl id="growl" showDetail="true"></p:growl>
 
-		<p:dataTable var="user" value="#{listaUsuarioBean.usuariosModel}"
-			selectionMode="single" selection="#{listaUsuarioBean.selectedUser}">
+		<p:dataTable var="user" value="#{listaUsuarioViewedScopeBean.usuariosModel}"
+			selectionMode="single" selection="#{listaUsuarioViewedScopeBean.selectedUser}">
 			
-			<p:ajax event="rowSelect" oncomplete="carro.show()" update=":frm:display :frm:growl" listener="#{listaUsuarioBean.onRowSelected}"></p:ajax>
-			<p:ajax event="rowUnselect" oncomplete="carro.show()" update=":frm:growl" listener="#{listaUsuarioBean.rowUnselect}"></p:ajax>
+			<p:ajax event="rowSelect" oncomplete="carro.show()" update=":frm:display :frm:growl" listener="#{listaUsuarioViewedScopeBean.onRowSelected}"></p:ajax>
+			<p:ajax event="rowUnselect" oncomplete="carro.show()" update=":frm:growl" listener="#{listaUsuarioViewedScopeBean.rowUnselect}"></p:ajax>
 			
 			<p:column headerText="nome">
 				<h:outputText value="#{user.nome}"></h:outputText>
@@ -35,8 +35,8 @@
 
 			<h:panelGrid id="display" columns="2" cellpadding="4">
 				<f:facet name="header"></f:facet>
-				<h:outputText value="#{listaUsuarioBean.selectedUser.nome}"></h:outputText>
-				<h:outputText value="#{listaUsuarioBean.selectedUser.email}"></h:outputText>
+				<h:outputText value="#{listaUsuarioViewedScopeBean.selectedUser.nome}"></h:outputText>
+				<h:outputText value="#{listaUsuarioViewedScopeBean.selectedUser.email}"></h:outputText>
 			</h:panelGrid>
 
 		</p:dialog>

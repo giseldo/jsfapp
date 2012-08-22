@@ -6,17 +6,16 @@ import java.util.List;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 
 import org.primefaces.event.SelectEvent;
 
-@ManagedBean(name = "listaUsuarioRequestScopedBean")
-@RequestScoped
-public class ListarUsuarioRequestScopedBean implements Serializable{
+@ManagedBean(name = "listaUsuarioViewedScopeBean")
+@ViewScoped
+public class ListaUsuarioViewedScopeBean implements Serializable{
 	
-	private static final long serialVersionUID = 3549175577858802869L;
+	private static final long serialVersionUID = -1167294922350840116L;
 
 	private List<Usuario> usuarios;
 
@@ -26,7 +25,7 @@ public class ListarUsuarioRequestScopedBean implements Serializable{
 
 	private Usuario selectedUser;
 
-	public ListarUsuarioRequestScopedBean() {
+	public ListaUsuarioViewedScopeBean() {
 		usuariosModel = new UsuarioDataModel(getUsuarios());
 	}
 
