@@ -78,7 +78,7 @@ public class IncluirUsuarioRequestScoped {
 
 	public List<Usuario> getUsuarios() {
 
-		List<Usuario> users = new ArrayList<Usuario>();
+		this.usuarios = new ArrayList<Usuario>();
 
 		Usuario user = new Usuario();
 		user.setNome("giseldo");
@@ -88,10 +88,10 @@ public class IncluirUsuarioRequestScoped {
 		user2.setNome("alana");
 		user2.setEmail("alana@gmail.com");
 
-		users.add(user);
-		users.add(user2);
+		usuarios.add(user);
+		usuarios.add(user2);
 
-		return users;
+		return usuarios;
 
 	}
 	
