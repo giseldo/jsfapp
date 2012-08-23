@@ -11,10 +11,6 @@ public class IncluirUsuarioViewScoped implements Serializable{
 	
 	private static final long serialVersionUID = 8938854896390863587L;
 
-	public IncluirUsuarioViewScoped() {
-		
-	}
-	
 	private String nome;
 
 	public String getNome() {
