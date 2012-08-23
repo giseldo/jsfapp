@@ -2,8 +2,9 @@ Autor: Giseldo Neo
 Data: 22/09/2012
 
 Objetivo
- Aplicação Simples para demonstrar alguns recursos do JSF 2 e do PrimeFaces.
+  Aplicação Simples para demonstrar alguns recursos do JSF 2 e do PrimeFaces.
 
 Notas
--Tive que colocar a classe serializable pois estava lançando erro no console.
--Tive que colocar serialVersionUID
+-Tive que colocar a classe serializable pois estava lançando erro no console quando escopo requisicao.
+-Tive que colocar tambem serialVersionUID na classe
+

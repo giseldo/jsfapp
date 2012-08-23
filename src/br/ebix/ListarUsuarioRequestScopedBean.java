@@ -40,14 +40,15 @@ public class ListarUsuarioRequestScopedBean implements Serializable{
 		FacesContext.getCurrentInstance().addMessage(null, msg);
 	}
 	
+	@SuppressWarnings("unchecked")
 	public List<Usuario> getUsuarios() {
 		
-		usuarios = new ArrayList<Usuario>();
-
-		Usuario user = (Usuario)((HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true)).getAttribute("usuario");
-
-		usuarios.add(user);
-
+		ListaUsuariosMemoria listaUsuariosMemoria = (ListaUsuariosMemoria)((HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true)).getAttribute("listaUsuarios");;
+		List<Usuario> l = listaUsuariosMemoria.getUsuarios();
+		for (Usuario user : l) {
+			usuarios.add(user);
+		}
+		
 		return usuarios;
 
 	}
