@@ -7,8 +7,8 @@ import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
 
 import org.primefaces.event.SelectEvent;
 
@@ -41,19 +41,12 @@ public class ListarUsuarioRequestScopedBean implements Serializable{
 	}
 	
 	public List<Usuario> getUsuarios() {
-
+		
 		usuarios = new ArrayList<Usuario>();
 
-		Usuario user = new Usuario();
-		user.setNome("giseldo");
-		user.setEmail("giseldo@gmail.com");
-
-		Usuario user2 = new Usuario();
-		user2.setNome("alana");
-		user2.setEmail("alana@gmail.com");
+		Usuario user = (Usuario)((HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true)).getAttribute("usuario");
 
 		usuarios.add(user);
-		usuarios.add(user2);
 
 		return usuarios;
 

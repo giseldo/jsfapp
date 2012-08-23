@@ -1,11 +1,11 @@
 package br.ebix;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 
@@ -23,6 +23,7 @@ public class IncluirUsuarioRequestScoped implements Serializable {
 
 	private Usuario usuarioSelecionado;
 
+	@ManagedProperty(value="#{usuario}")
 	private Usuario usuario = new Usuario();
 
 	public String novo() {
@@ -31,9 +32,6 @@ public class IncluirUsuarioRequestScoped implements Serializable {
 
 	public String mostra() {
 		return "sucesso2";
-		// return "mostraUsuario2";
-		// return "mostraUsuario2?faces-redirect=true";
-		// return "mostraUsuario2?includeViewParams=true";
 	}
 
 	public String salvar() {
@@ -45,7 +43,7 @@ public class IncluirUsuarioRequestScoped implements Serializable {
 					"Senha confirmada incorretamente", ""));
 			return "usuario";
 		}
-
+		
 		return "sucesso";
 	}
 
@@ -80,25 +78,6 @@ public class IncluirUsuarioRequestScoped implements Serializable {
 
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
-	}
-
-	public List<Usuario> getUsuarios() {
-
-		this.usuarios = new ArrayList<Usuario>();
-
-		Usuario user = new Usuario();
-		user.setNome("giseldo");
-		user.setEmail("giseldo@gmail.com");
-
-		Usuario user2 = new Usuario();
-		user2.setNome("alana");
-		user2.setEmail("alana@gmail.com");
-
-		usuarios.add(user);
-		usuarios.add(user2);
-
-		return usuarios;
-
 	}
 
 }
