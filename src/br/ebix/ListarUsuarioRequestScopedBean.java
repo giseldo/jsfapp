@@ -18,7 +18,7 @@ public class ListarUsuarioRequestScopedBean implements Serializable{
 	
 	private static final long serialVersionUID = 3549175577858802869L;
 
-	private List<Usuario> usuarios;
+	private List<Usuario> usuarios = new ArrayList<Usuario>();
 
 	private List<Usuario> usuariosSelecionado;
 
@@ -40,11 +40,11 @@ public class ListarUsuarioRequestScopedBean implements Serializable{
 		FacesContext.getCurrentInstance().addMessage(null, msg);
 	}
 	
-	@SuppressWarnings("unchecked")
 	public List<Usuario> getUsuarios() {
 		
-		ListaUsuariosMemoria listaUsuariosMemoria = (ListaUsuariosMemoria)((HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true)).getAttribute("listaUsuarios");;
+		ListaUsuariosMemoria listaUsuariosMemoria = (ListaUsuariosMemoria)((HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true)).getAttribute("listaUsuariosMemoria");
 		List<Usuario> l = listaUsuariosMemoria.getUsuarios();
+		
 		for (Usuario user : l) {
 			usuarios.add(user);
 		}

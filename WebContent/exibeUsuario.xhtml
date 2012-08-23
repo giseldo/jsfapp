@@ -13,6 +13,8 @@
 		
 		<h1>Usuario cadastrado</h1>
 		<hr />
+		<h:link value="index" outcome="index"></h:link>
+		<hr />
 		Nome: <h:outputText value="#{incluirUsuarioRequestScoped.usuario.nome}"></h:outputText>
 		<br />
 		<h:inputText value="#{incluirUsuarioRequestScoped.usuario.nome}"></h:inputText> 
@@ -23,9 +25,7 @@
 		Senha: <h:outputText value="#{incluirUsuarioRequestScoped.usuario.senha}"></h:outputText>
 		<hr />
 		<h:commandLink action="#{incluirUsuarioRequestScoped.mostra}" value="exibe usuario novamente outro xhtml"></h:commandLink>
-		<hr />
-		<h:link value="index" outcome="index"></h:link>
-		<hr />
+		
 		
 	</h:form>
 
