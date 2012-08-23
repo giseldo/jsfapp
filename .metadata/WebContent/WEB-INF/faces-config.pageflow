@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf13452094772180" configfile="/jsfapp/WebContent/WEB-INF/faces-config.xml">
-  <nodes xsi:type="pageflow:PFPage" name="mostraUsuario.xhtml" x="122" y="562" id="pf13454658740422" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf13454871772002" path="/mostraUsuario.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="mostraUsuario2.xhtml" x="338" y="562" id="pf13454809678041" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf13454871772002" path="/mostraUsuario2.xhtml?includeViewParams=true"/>
-  <nodes xsi:type="pageflow:PFPage" name="incluirUsuarioRequestScoped.xhtml" id="pf13456684638670" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf13456684638671" path="/incluirUsuarioRequestScoped.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="mostraUsuario.xhtml?includeViewParams=true" id="pf13456684638672" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf13456684638671" path="/mostraUsuario.xhtml?includeViewParams=true"/>
-  <links id="pf13454871772002" target="pf13454809678041" source="pf13454658740422" outcome="sucesso2"/>
-  <links id="pf13456684638671" target="pf13456684638672" source="pf13456684638670" outcome="sucesso"/>
+  <nodes xsi:type="pageflow:PFPage" name="exibeUsuario.xhtml" id="pf13457324327806" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf13457324460599" inlinks="pf134573244605910" path="/exibeUsuario.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="incluirUsuarioRequestScoped.xhtml" id="pf134573244605911" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf134573244605910" path="/incluirUsuarioRequestScoped.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="exibeUsuario2.xhtml" id="pf134573244606212" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf13457324460599" path="/exibeUsuario2.xhtml"/>
+  <links id="pf134573244605910" target="pf13457324327806" source="pf134573244605911" outcome="sucesso"/>
+  <links id="pf13457324460599" target="pf134573244606212" source="pf13457324327806" outcome="sucesso2"/>
 </pageflow:Pageflow>

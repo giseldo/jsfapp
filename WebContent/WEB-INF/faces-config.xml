@@ -9,15 +9,15 @@
 		<from-view-id>/incluirUsuarioRequestScoped.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>sucesso</from-outcome>
-			<to-view-id>/mostraUsuario.xhtml?includeViewParams=true</to-view-id>
+			<to-view-id>/exibeUsuario.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 
 	<navigation-rule>
-		<from-view-id>/mostraUsuario.xhtml</from-view-id>
+		<from-view-id>/exibeUsuario.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>sucesso2</from-outcome>
-			<to-view-id>/mostraUsuario2.xhtml?includeViewParams=true</to-view-id>
+			<to-view-id>/exibeUsuario2.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 

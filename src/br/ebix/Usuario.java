@@ -2,16 +2,16 @@ package br.ebix;
 
 import java.io.Serializable;
 
-public class Usuario implements Serializable{
-	
+public class Usuario implements Serializable {
+
 	private static final long serialVersionUID = 437026715676365195L;
-	
+
 	private String nome;
 	private String email;
 	private String senha;
 
 	public String getNome() {
-		return nome;
+		return (nome == null ? "" : nome);
 	}
 
 	public void setNome(String nome) {
@@ -19,7 +19,7 @@ public class Usuario implements Serializable{
 	}
 
 	public String getEmail() {
-		return email;
+		return (email == null ? "" : email);
 	}
 
 	public void setEmail(String email) {
@@ -27,7 +27,7 @@ public class Usuario implements Serializable{
 	}
 
 	public String getSenha() {
-		return senha;
+		return (senha == null ? "" : senha);
 	}
 
 	public void setSenha(String senha) {

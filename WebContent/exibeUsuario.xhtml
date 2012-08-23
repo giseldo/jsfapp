@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>Usuario cadastrado</title>
+</h:head>
+
+<h:body>
+
+	<h:form>
+		
+		<h1>Usuario cadastrado</h1>
+		<hr />
+		Nome: <h:outputText value="#{incluirUsuarioRequestScoped.usuario.nome}"></h:outputText>
+		<br />
+		<h:inputText value="#{incluirUsuarioRequestScoped.usuario.nome}"></h:inputText> 
+		<br />
+		E-Mail: <h:outputText  value="#{incluirUsuarioRequestScoped.usuario.email}"></h:outputText >
+		<!-- <h:inputText value="#{usuarioBean.email}"></h:inputText> -->
+		<br />
+		Senha: <h:outputText value="#{incluirUsuarioRequestScoped.usuario.senha}"></h:outputText>
+		<hr />
+		<h:commandLink action="#{incluirUsuarioRequestScoped.mostra}" value="outra pagina"></h:commandLink>
+		
+	</h:form>
+
+</h:body>
+
+</html>

@@ -1,5 +1,6 @@
 package br.ebix;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,34 +13,39 @@ import org.primefaces.event.SelectEvent;
 
 @ManagedBean(name = "incluirUsuarioRequestScoped")
 @RequestScoped
-public class IncluirUsuarioRequestScoped {
+public class IncluirUsuarioRequestScoped implements Serializable {
 
-	private String confirmaSenha;
+	private static final long serialVersionUID = 7752657626478478037L;
+
+	private String confirmaSenha = "";
+
 	private List<Usuario> usuarios;
+
 	private Usuario usuarioSelecionado;
-	private Usuario usuario;
+
+	private Usuario usuario = new Usuario();
 
 	public String novo() {
 		return "usuario";
 	}
-	
+
 	public String mostra() {
 		return "sucesso2";
-//		return "mostraUsuario2";
-//		return "mostraUsuario2?faces-redirect=true";
-//		return "mostraUsuario2?includeViewParams=true";
+		// return "mostraUsuario2";
+		// return "mostraUsuario2?faces-redirect=true";
+		// return "mostraUsuario2?includeViewParams=true";
 	}
-	
-	
 
 	public String salvar() {
 		FacesContext context = FacesContext.getCurrentInstance();
+
 		if (!this.usuario.getSenha().equalsIgnoreCase(this.confirmaSenha)) {
 			context.addMessage(null, new FacesMessage(
 					FacesMessage.SEVERITY_ERROR,
 					"Senha confirmada incorretamente", ""));
 			return "usuario";
 		}
+
 		return "sucesso";
 	}
 
@@ -55,7 +61,7 @@ public class IncluirUsuarioRequestScoped {
 	public void setConfirmaSenha(String confirmaSenha) {
 		this.confirmaSenha = confirmaSenha;
 	}
-	
+
 	public Usuario getUsuarioSelecionado() {
 		return usuarioSelecionado;
 	}
@@ -94,5 +100,5 @@ public class IncluirUsuarioRequestScoped {
 		return usuarios;
 
 	}
-	
+
 }

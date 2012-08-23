@@ -10,11 +10,13 @@
 </h:head>
 
 <h:body>
-
+	
+	<h:outputLabel value=" " />
+	
 	<h:form id="frm">
 		<h:messages />
 		<h:panelGrid columns="2">
-
+			 
 			<h:outputLabel value="Nome:" for="nome" />
 			<h:inputText id="nome" label="Nome" value="#{incluirUsuarioRequestScoped.usuario.nome}"
 				required="true"></h:inputText>
@@ -28,6 +30,7 @@
 			<h:inputSecret id="confirmarsenha" label="Confirmar Senha"
 				value="#{incluirUsuarioRequestScoped.confirmaSenha}" required="true"></h:inputSecret>
 			<h:outputText />
+			
 			<h:commandButton action="#{incluirUsuarioRequestScoped.salvar}" value="salvar"></h:commandButton>
 		
 		</h:panelGrid>
