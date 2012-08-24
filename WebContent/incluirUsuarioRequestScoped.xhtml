@@ -46,7 +46,7 @@
 			<h:selectOneMenu
 				value="#{incluirUsuarioRequestScoped.usuario.estado}" id="cmbEstado">
 				<f:selectItems value="#{incluirUsuarioRequestScoped.estadoArray}" />
-				<f:ajax event="change" render="cidades"></f:ajax>
+				<f:ajax event="change" render="cmbCidade"></f:ajax>
 			</h:selectOneMenu>
 
 			<h:outputText value="Cidade:" for="cmbCidade" />
