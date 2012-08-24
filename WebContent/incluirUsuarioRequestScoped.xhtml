@@ -22,7 +22,7 @@
 			value="salvar"></h:commandButton>
 		<hr />
 
-		<h:messages showDetail="true"/>
+		<h:messages showDetail="true" />
 
 		<h:panelGrid columns="2">
 
@@ -43,8 +43,17 @@
 				value="#{incluirUsuarioRequestScoped.confirmaSenha}" required="true" />
 
 			<h:outputText value="Estado:" for="cmbEstado" />
-			<h:selectOneMenu value="#{incluirUsuarioRequestScoped.usuario.estado}" id="cmbEstado">
+			<h:selectOneMenu
+				value="#{incluirUsuarioRequestScoped.usuario.estado}" id="cmbEstado">
 				<f:selectItems value="#{incluirUsuarioRequestScoped.estadoArray}" />
+				<f:ajax event="change" render="cidades"></f:ajax>
+			</h:selectOneMenu>
+
+			<h:outputText value="Cidade:" for="cmbCidade" />
+			<h:selectOneMenu
+				value="#{incluirUsuarioRequestScoped.usuario.cidade}" id="cmbCidade"
+				valueChangeListener="#{incluirUsuarioRequestScoped.carregarCidade}">
+				<f:selectItems value="#{incluirUsuarioRequestScoped.cidades}" />
 			</h:selectOneMenu>
 
 		</h:panelGrid>

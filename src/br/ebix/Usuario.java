@@ -13,6 +13,15 @@ public class Usuario implements Serializable {
 	private String email;
 	private String senha;
 	private Estado estado;
+	private String cidade;
+
+	public String getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
 
 	public String getNome() {
 		return (nome == null ? "" : nome);

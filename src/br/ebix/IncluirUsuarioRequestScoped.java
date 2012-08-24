@@ -1,12 +1,15 @@
 package br.ebix;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ValueChangeEvent;
 
 import org.primefaces.event.SelectEvent;
 
@@ -15,19 +18,20 @@ import org.primefaces.event.SelectEvent;
 public class IncluirUsuarioRequestScoped implements Serializable {
 
 	private static final long serialVersionUID = 7752657626478478037L;
-	
+
 	// Este bean é escopo de seção para poder ser acessado em outros locais
 	@ManagedProperty(value = "#{listaUsuariosMemoria}")
 	private ListaUsuariosMemoria listaUsuariosMemoria;
-	
+
 	private Usuario usuario = new Usuario();
-	
+
 	// Está aqui pois não faz parte do bean de usuario
 	private String confirmaSenha = "";
-	
+
 	// Para popular o combo
 	private Estado[] estadoArray;
-	
+	private List<String> cidades;
+
 	public String salvar() {
 
 		FacesContext context = FacesContext.getCurrentInstance();
@@ -52,6 +56,18 @@ public class IncluirUsuarioRequestScoped implements Serializable {
 		FacesContext.getCurrentInstance().addMessage("Ola", msg);
 	}
 
+	public void carregarCidade(ValueChangeEvent evento) {
+		String codigoEstado = evento.getNewValue().toString();
+		cidades = new ArrayList<String>();
+
+		if (codigoEstado.equals("1")) {
+			cidades.add("teste");
+		} else if (codigoEstado.equals("2")) {
+			cidades.add("teste2");
+		}
+
+	}
+
 	public String novo() {
 		return "usuario";
 	}
@@ -59,9 +75,9 @@ public class IncluirUsuarioRequestScoped implements Serializable {
 	public String mostra() {
 		return "sucesso2";
 	}
-	
+
 	/* get andsets */
-	
+
 	public ListaUsuariosMemoria getListaUsuariosMemoria() {
 		return listaUsuariosMemoria;
 	}
@@ -86,7 +102,7 @@ public class IncluirUsuarioRequestScoped implements Serializable {
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
-	
+
 	public Estado[] getEstadoArray() {
 		this.estadoArray = Estado.values();
 		return estadoArray;
@@ -94,6 +110,14 @@ public class IncluirUsuarioRequestScoped implements Serializable {
 
 	public void setEstadoArray(Estado[] estadoArray) {
 		this.estadoArray = estadoArray;
+	}
+
+	public List<String> getCidades() {
+		return cidades;
+	}
+
+	public void setCidades(List<String> cidades) {
+		this.cidades = cidades;
 	}
 
 }
