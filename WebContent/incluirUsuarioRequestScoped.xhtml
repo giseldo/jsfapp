@@ -41,22 +41,21 @@
 			<h:outputLabel value="Confirmar Senha:" for="confirmasenha" />
 			<h:inputSecret id="confirmasenha" label="Confirmar Senha"
 				value="#{incluirUsuarioRequestScoped.confirmaSenha}" required="true" />
-
+					</h:panelGrid>
+					
 			<h:outputText value="Estado:" for="cmbEstado" />
-			<h:selectOneMenu
-				value="#{incluirUsuarioRequestScoped.usuario.estado}" id="cmbEstado">
+			<h:selectOneMenu id="cmbEstado"
+				valueChangeListener="#{incluirUsuarioRequestScoped.carregarCidade}"
+				value="#{incluirUsuarioRequestScoped.usuario.estado}">
 				<f:selectItems value="#{incluirUsuarioRequestScoped.estadoArray}" />
 				<f:ajax event="change" render="cmbCidade"></f:ajax>
 			</h:selectOneMenu>
 
-			<h:outputText value="Cidade:" for="cmbCidade" />
-			<h:selectOneMenu
-				value="#{incluirUsuarioRequestScoped.usuario.cidade}" id="cmbCidade"
-				valueChangeListener="#{incluirUsuarioRequestScoped.carregarCidade}">
+		 	<h:outputText value="Cidade:" for="cmbCidade" /> 
+			<h:selectOneMenu id="cmbCidade"
+				value="#{incluirUsuarioRequestScoped.usuario.cidade}">
 				<f:selectItems value="#{incluirUsuarioRequestScoped.cidades}" />
 			</h:selectOneMenu>
-
-		</h:panelGrid>
 
 	</h:form>
 

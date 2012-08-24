@@ -19,6 +19,9 @@ public class IncluirUsuarioRequestScoped implements Serializable {
 
 	private static final long serialVersionUID = 7752657626478478037L;
 
+	// TODO Resolver o problema do view spired exception do mesmo jeito que tem
+	// no demo do prime faces
+
 	// Este bean é escopo de seção para poder ser acessado em outros locais
 	@ManagedProperty(value = "#{listaUsuariosMemoria}")
 	private ListaUsuariosMemoria listaUsuariosMemoria;
@@ -30,7 +33,7 @@ public class IncluirUsuarioRequestScoped implements Serializable {
 
 	// Para popular o combo
 	private Estado[] estadoArray;
-	private List<String> cidades;
+	private String[] cidades;
 
 	public String salvar() {
 
@@ -57,13 +60,16 @@ public class IncluirUsuarioRequestScoped implements Serializable {
 	}
 
 	public void carregarCidade(ValueChangeEvent evento) {
-		String codigoEstado = evento.getNewValue().toString();
-		cidades = new ArrayList<String>();
+		
+		String estado = evento.getNewValue().toString();
+		cidades = new String[1];
 
-		if (codigoEstado.equals("1")) {
-			cidades.add("teste");
-		} else if (codigoEstado.equals("2")) {
-			cidades.add("teste2");
+		if (estado.equals(Estado.ALAGOAS.toString())) {
+			cidades[0] ="MACEIO";
+		} else if (estado.equals(Estado.CEARA.toString())) {
+			cidades[0] = "FORTALEZA";
+		} else if (estado.equals(Estado.SERGIPE.toString())) {
+			cidades[0] = "ARACAJU";
 		}
 
 	}
@@ -111,12 +117,12 @@ public class IncluirUsuarioRequestScoped implements Serializable {
 	public void setEstadoArray(Estado[] estadoArray) {
 		this.estadoArray = estadoArray;
 	}
-
-	public List<String> getCidades() {
+	
+	public String[] getCidades() {
 		return cidades;
 	}
 
-	public void setCidades(List<String> cidades) {
+	public void setCidades(String[] cidades) {
 		this.cidades = cidades;
 	}
 
