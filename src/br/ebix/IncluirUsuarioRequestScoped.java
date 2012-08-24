@@ -1,8 +1,6 @@
 package br.ebix;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -17,22 +15,19 @@ import org.primefaces.event.SelectEvent;
 public class IncluirUsuarioRequestScoped implements Serializable {
 
 	private static final long serialVersionUID = 7752657626478478037L;
-
+	
+	// Este bean é escopo de seção para poder ser acessado em outros locais
 	@ManagedProperty(value = "#{listaUsuariosMemoria}")
 	private ListaUsuariosMemoria listaUsuariosMemoria;
-	private Usuario usuarioSelecionado;
+	
 	private Usuario usuario = new Usuario();
+	
+	// Está aqui pois não faz parte do bean de usuario
 	private String confirmaSenha = "";
-
-	public ListaUsuariosMemoria getListaUsuariosMemoria() {
-		return listaUsuariosMemoria;
-	}
-
-	public void setListaUsuariosMemoria(
-			ListaUsuariosMemoria listaUsuariosMemoria) {
-		this.listaUsuariosMemoria = listaUsuariosMemoria;
-	}
-
+	
+	// Para popular o combo
+	private Estado[] estadoArray;
+	
 	public String salvar() {
 
 		FacesContext context = FacesContext.getCurrentInstance();
@@ -64,8 +59,18 @@ public class IncluirUsuarioRequestScoped implements Serializable {
 	public String mostra() {
 		return "sucesso2";
 	}
-
+	
 	/* get andsets */
+	
+	public ListaUsuariosMemoria getListaUsuariosMemoria() {
+		return listaUsuariosMemoria;
+	}
+
+	public void setListaUsuariosMemoria(
+			ListaUsuariosMemoria listaUsuariosMemoria) {
+		this.listaUsuariosMemoria = listaUsuariosMemoria;
+	}
+
 	public String getConfirmaSenha() {
 		return confirmaSenha;
 	}
@@ -74,20 +79,21 @@ public class IncluirUsuarioRequestScoped implements Serializable {
 		this.confirmaSenha = confirmaSenha;
 	}
 
-	public Usuario getUsuarioSelecionado() {
-		return usuarioSelecionado;
-	}
-
-	public void setUsuarioSelecionado(Usuario usuarioSelecionado) {
-		this.usuarioSelecionado = usuarioSelecionado;
-	}
-
 	public Usuario getUsuario() {
 		return usuario;
 	}
 
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
+	}
+	
+	public Estado[] getEstadoArray() {
+		this.estadoArray = Estado.values();
+		return estadoArray;
+	}
+
+	public void setEstadoArray(Estado[] estadoArray) {
+		this.estadoArray = estadoArray;
 	}
 
 }

@@ -6,35 +6,48 @@
 
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html;charset=ISO88591-1" />
-	<title>Cadastro de usuarios</title>
+	<title>Incluir Usuario</title>
 </h:head>
 
 <h:body>
 
-	<h:outputLabel value=" " />
+	<h:outputLabel value="Incluir usuario" />
 
 	<h:form id="frm">
-		<h:messages />
+
+		<hr />
+		<h:link value="index" outcome="index"></h:link>
+		<hr />
+		<h:commandButton action="#{incluirUsuarioRequestScoped.salvar}"
+			value="salvar"></h:commandButton>
+		<hr />
+
+		<h:messages showDetail="true"/>
+
 		<h:panelGrid columns="2">
 
 			<h:outputLabel value="Nome:" for="nome" />
 			<h:inputText id="nome" label="Nome"
-				value="#{incluirUsuarioRequestScoped.usuario.nome}" required="true"></h:inputText>
+				value="#{incluirUsuarioRequestScoped.usuario.nome}" required="true" />
+
 			<h:outputLabel value="Email:" for="email" />
 			<h:inputText id="email" label="Email"
-				value="#{incluirUsuarioRequestScoped.usuario.email}" required="true"></h:inputText>
+				value="#{incluirUsuarioRequestScoped.usuario.email}" required="true" />
+
 			<h:outputLabel value="Senha:" for="senha" />
 			<h:inputSecret id="senha" label="Senha"
-				value="#{incluirUsuarioRequestScoped.usuario.senha}" required="true"></h:inputSecret>
-			<h:outputLabel value="Confirmar Senha:" for="confirmarSenha" />
-			<h:inputSecret id="confirmarsenha" label="Confirmar Senha"
-				value="#{incluirUsuarioRequestScoped.confirmaSenha}" required="true"></h:inputSecret>
-			<h:outputText />
+				value="#{incluirUsuarioRequestScoped.usuario.senha}" required="true" />
+
+			<h:outputLabel value="Confirmar Senha:" for="confirmasenha" />
+			<h:inputSecret id="confirmasenha" label="Confirmar Senha"
+				value="#{incluirUsuarioRequestScoped.confirmaSenha}" required="true" />
+
+			<h:outputText value="Estado:" for="cmbEstado" />
+			<h:selectOneMenu value="#{incluirUsuarioRequestScoped.usuario.estado}" id="cmbEstado">
+				<f:selectItems value="#{incluirUsuarioRequestScoped.estadoArray}" />
+			</h:selectOneMenu>
 
 		</h:panelGrid>
-		<hr />
-		<h:commandButton action="#{incluirUsuarioRequestScoped.salvar}"
-			value="salvar"></h:commandButton>
 
 	</h:form>
 

@@ -1,6 +1,7 @@
 package br.ebix;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
@@ -17,6 +18,9 @@ public class ListaUsuariosMemoria implements Serializable {
 	public List<Usuario> usuarios;
 
 	public List<Usuario> getUsuarios() {
+		if ( usuarios == null ) {
+			usuarios = new ArrayList<Usuario>();
+		}
 		return usuarios;
 	}
 
