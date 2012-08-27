@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html;charset=ISO88591-1" />
+	<title>Incluir Usuario</title>
+</h:head>
+
+<h:body>
+
+	<h:outputLabel value="Incluir usuario" />
+
+	<h:form id="frm">
+
+		<p:separator />
+		<h:link value="Home" outcome="index" />
+		<p:separator />
+		<p:growl id="msg" showDetail="true" />
+		<h:messages showDetail="true" showSummary="true" />
+
+		<h:panelGrid columns="2">
+
+			<h:outputLabel value="Nome:" for="nome" />
+			<p:inputText id="nome" label="Nome"
+				value="#{incluirUsuario.usuario.nome}" required="true" />
+
+			<h:outputLabel value="Email:" for="email" />
+			<p:inputText id="email" label="Email"
+				value="#{incluirUsuario.usuario.email}" required="true" />
+
+			<h:outputLabel value="Senha:" for="senha" />
+			<p:password id="senha" label="Senha"
+				value="#{incluirUsuario.usuario.senha}" required="true" />
+
+			<h:outputLabel value="Confirmar Senha:" for="confirmasenha" />
+			<p:password id="confirmasenha" label="Confirmar Senha"
+				value="#{incluirUsuario.confirmaSenha}" required="true" />
+			
+						 
+			<h:outputLabel value="Estado:" for="estado" />
+			<p:selectOneMenu id="estado" value="#{incluirUsuario.estado}">
+				<f:selectItem itemLabel="Selecione" itemValue="" />
+				<f:selectItems value="#{incluirUsuario.estados}" />
+				<p:ajax listener="#{incluirUsuario.handlerMudarEstado}" update="cidade"  />
+			</p:selectOneMenu>
+
+			<h:outputLabel value="Cidade:" for="cidade" />
+			<p:selectOneMenu id="cidade" value="#{incluirUsuario.cidade}">
+				<f:selectItem itemLabel="Selecione" itemValue="" />
+				<f:selectItems value="#{incluirUsuario.cidades}" />
+			</p:selectOneMenu>
+			 
+			
+		</h:panelGrid>
+		<p:separator />
+		<p:commandButton action="#{incluirUsuario.salvar}" value="salvar" />
+
+	</h:form>
+
+</h:body>
+
+</html>

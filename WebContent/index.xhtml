@@ -9,11 +9,14 @@
 <h:body>
 	<h:outputText value="olá mundo, hi!, by monster" />
 	<hr />
-	<h:link value="Incluir Usuario Escopo de requisição"
-		outcome="incluirUsuarioRequestScoped"></h:link>
-	<hr />
-	<h:link value="Lista Usuario Escopo Requisição"
-		outcome="listaUsuarioRequestScoped"></h:link>
+	<h:form>
+		<h:commandButton value="Novo usuário" action="#{incluirUsuario.novo}" />
+		<hr />
+		<h:commandButton value="Listar usuários"
+			action="#{listarUsuario.carregar}" />
+	</h:form>
+
+	<h:link />
 	<hr />
 </h:body>
 

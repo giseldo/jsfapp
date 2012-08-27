@@ -1,0 +1,15 @@
+			<!--
+			<h:outputText value="Estado:" for="cmbEstado" /> 
+			<h:selectOneMenu id="cmbEstado"
+				valueChangeListener="#{incluirUsuario.carregarCidade}"
+				value="#{incluirUsuario.usuario.estado}">
+				<f:selectItems value="#{incluirUsuario.estadoArray}" />
+				<f:ajax event="change" render="cmbCidade" immediate="false"></f:ajax>
+			</h:selectOneMenu>
+		
+			<h:outputText value="Cidade:" for="cmbCidade" />
+			<h:selectOneMenu id="cmbCidade"
+				value="#{incluirUsuario.usuario.cidade}">
+				<f:selectItems value="#{incluirUsuario.cidades}" />
+			</h:selectOneMenu>
+ 			-->

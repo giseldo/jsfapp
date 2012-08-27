@@ -12,9 +12,9 @@ import javax.servlet.http.HttpSession;
 
 import org.primefaces.event.SelectEvent;
 
-@ManagedBean(name = "listaUsuarioRequestScopedBean")
+@ManagedBean(name = "listarUsuario")
 @RequestScoped
-public class ListarUsuarioRequestScopedBean implements Serializable{
+public class ListarUsuario implements Serializable{
 	
 	private static final long serialVersionUID = 3549175577858802869L;
 
@@ -25,8 +25,12 @@ public class ListarUsuarioRequestScopedBean implements Serializable{
 	private UsuarioDataModel usuariosModel;
 
 	private Usuario selectedUser;
+	
+	public String carregar() {
+		return "listarUsuario";
+	}
 
-	public ListarUsuarioRequestScopedBean() {
+	public ListarUsuario() {
 		usuariosModel = new UsuarioDataModel(getUsuarios());
 	}
 

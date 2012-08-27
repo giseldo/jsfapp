@@ -13,28 +13,25 @@
 
 		<h1>Usuario cadastrado</h1>
 		<hr />
-		<h:link value="index" outcome="index"></h:link>
+		<h:link value="Home" outcome="index"></h:link>
 		<hr />
 		<h:link value="Lista Usuario Escopo Requisição"
-			outcome="listaUsuarioRequestScoped"></h:link>
+			outcome="listarUsuario"></h:link>
 		<hr />
-		<h:commandLink action="#{incluirUsuarioRequestScoped.mostra}"
+		<h:commandLink action="#{incluirUsuario.mostra}"
 			value="exibe usuario novamente outro xhtml"></h:commandLink>
 		<hr />
 		Nome: <h:outputText
-			value="#{incluirUsuarioRequestScoped.usuario.nome}"></h:outputText>
+			value="#{incluirUsuario.usuario.nome}"></h:outputText>
 		<!-- 
-		<br />
 		<h:inputText value="#{incluirUsuarioRequestScoped.usuario.nome}"></h:inputText>  -->
 		<br />
 		E-Mail: <h:outputText
-			value="#{incluirUsuarioRequestScoped.usuario.email}"></h:outputText>
+			value="#{incluirUsuario.usuario.email}"></h:outputText>
 		<!-- <h:inputText value="#{usuarioBean.email}"></h:inputText> -->
 		<br />
 		Senha: <h:outputText
-			value="#{incluirUsuarioRequestScoped.usuario.senha}"></h:outputText>
-
-
+			value="#{incluirUsuario.usuario.senha}"></h:outputText>
 
 	</h:form>
 
