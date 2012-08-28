@@ -1,22 +1,22 @@
-package br.ebix;
+package br.ebix.bean;
 
 import java.io.Serializable;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
-import javax.faces.bean.SessionScoped;
-import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
-import javax.servlet.http.HttpSession;
 
 import org.primefaces.event.SelectEvent;
 
+import br.ebix.rn.UsuarioRN;
+import br.ebix.vo.Usuario;
+
 @ManagedBean(name = "incluirUsuario")
-@ViewScoped
+@RequestScoped
 public class IncluirUsuario implements Serializable {
 
 	private static final long serialVersionUID = 7752657626478478037L;
@@ -25,8 +25,8 @@ public class IncluirUsuario implements Serializable {
 	// no demo do prime faces
 
 	// Este bean é escopo de seção para poder ser acessado em outros locais
-//	@ManagedProperty(value = "#{listaUsuariosMemoria}")
-//	private ListaUsuariosMemoria listaUsuariosMemoria;
+	//	@ManagedProperty(value = "#{listaUsuariosMemoria}")
+	//	private ListaUsuariosMemoria listaUsuariosMemoria;
 
 	private Usuario usuario = new Usuario();
 
@@ -79,9 +79,18 @@ public class IncluirUsuario implements Serializable {
 			return null;
 		}
 
-// 		simula uma base de dados em memoria
-//		ListaUsuariosMemoria listaUsuariosMemoria = (ListaUsuariosMemoria)((HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true)).getAttribute("listaUsuariosMemoria");
-//		listaUsuariosMemoria.adicionaUsuario(usuario);
+		UsuarioRN usuarioRN = new UsuarioRN();
+		try {
+			usuarioRN.incluirUsuario(usuario);
+		} catch (ClassNotFoundException e) {
+			FacesMessage msg = new FacesMessage("Exceção " + e.getMessage());
+			FacesContext.getCurrentInstance().addMessage(null, msg);
+			return null;
+		} catch (SQLException e) {
+			FacesMessage msg = new FacesMessage("SqlException " + e.getMessage());
+			FacesContext.getCurrentInstance().addMessage(null, msg);
+			return null;
+		}
 
 		return "sucesso";
 	}

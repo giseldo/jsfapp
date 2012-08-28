@@ -1,4 +1,4 @@
-package br.ebix;
+package br.ebix.vo;
 
 public enum Estado {
 

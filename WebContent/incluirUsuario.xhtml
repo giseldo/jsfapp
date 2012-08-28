@@ -18,8 +18,8 @@
 		<p:separator />
 		<h:link value="Home" outcome="index" />
 		<p:separator />
-		<p:growl id="msg" showDetail="true" />
-		<h:messages showDetail="true" showSummary="true" />
+		
+		<h:messages showSummary="true" showDetail="true"/>
 
 		<h:panelGrid columns="2">
 
@@ -39,24 +39,9 @@
 			<p:password id="confirmasenha" label="Confirmar Senha"
 				value="#{incluirUsuario.confirmaSenha}" required="true" />
 			
-						 
-			<h:outputLabel value="Estado:" for="estado" />
-			<p:selectOneMenu id="estado" value="#{incluirUsuario.estado}">
-				<f:selectItem itemLabel="Selecione" itemValue="" />
-				<f:selectItems value="#{incluirUsuario.estados}" />
-				<p:ajax listener="#{incluirUsuario.handlerMudarEstado}" update="cidade"  />
-			</p:selectOneMenu>
-
-			<h:outputLabel value="Cidade:" for="cidade" />
-			<p:selectOneMenu id="cidade" value="#{incluirUsuario.cidade}">
-				<f:selectItem itemLabel="Selecione" itemValue="" />
-				<f:selectItems value="#{incluirUsuario.cidades}" />
-			</p:selectOneMenu>
-			 
-			
 		</h:panelGrid>
 		<p:separator />
-		<p:commandButton action="#{incluirUsuario.salvar}" value="salvar" />
+		<h:commandButton action="#{incluirUsuario.salvar}" value="salvar" />
 
 	</h:form>
 

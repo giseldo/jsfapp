@@ -1,4 +1,4 @@
-package br.ebix;
+package br.ebix.bean;
 
 import java.io.Serializable;
 import java.util.List;
@@ -6,6 +6,9 @@ import java.util.List;
 import javax.faces.model.ListDataModel;
 
 import org.primefaces.model.SelectableDataModel;
+
+import br.ebix.vo.Usuario;
+
 
 public class UsuarioDataModel extends ListDataModel<Usuario> implements
 		SelectableDataModel<Usuario>, Serializable {

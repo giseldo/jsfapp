@@ -1,6 +1,6 @@
 import org.junit.Test;
 
-import br.ebix.Estado;
+import br.ebix.vo.Estado;
 
 
 public class TestCombo {

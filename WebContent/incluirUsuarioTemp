@@ -13,3 +13,19 @@
 				<f:selectItems value="#{incluirUsuario.cidades}" />
 			</h:selectOneMenu>
  			-->
+
+ 			
+ 						 
+			<h:outputLabel value="Estado:" for="estado" />
+			<p:selectOneMenu id="estado" value="#{incluirUsuario.estado}">
+				<f:selectItem itemLabel="Selecione" itemValue="" />
+				<f:selectItems value="#{incluirUsuario.estados}" />
+				<p:ajax listener="#{incluirUsuario.handlerMudarEstado}" update="cidade"  />
+			</p:selectOneMenu>
+
+			<h:outputLabel value="Cidade:" for="cidade" />
+			<p:selectOneMenu id="cidade" value="#{incluirUsuario.cidade}">
+				<f:selectItem itemLabel="Selecione" itemValue="" />
+				<f:selectItems value="#{incluirUsuario.cidades}" />
+			</p:selectOneMenu>
+ 			
