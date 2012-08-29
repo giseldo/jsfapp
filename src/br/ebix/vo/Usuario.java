@@ -1,6 +1,7 @@
 package br.ebix.vo;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class Usuario implements Serializable {
 
@@ -9,8 +10,62 @@ public class Usuario implements Serializable {
 	private String cpf;
 	private String nome;
 	private String email;
+	private String login;
 	private String senha;
+	private String idioma;
+	private Integer codigo;
+	private boolean ativo;
+	private Date nascimento;
+	private String celular;
 	
+	public String getLogin() {
+		return login;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
+	public String getCelular() {
+		return celular;
+	}
+
+	public void setCelular(String celular) {
+		this.celular = celular;
+	}
+
+	public Date getNascimento() {
+		return nascimento;
+	}
+
+	public void setNascimento(Date nascimento) {
+		this.nascimento = nascimento;
+	}
+
+	public Integer getCodigo() {
+		return codigo;
+	}
+	
+	public void setCodigo(Integer codigo) {
+		this.codigo = codigo;
+	}
+	
+	public String getIdioma() {
+		return idioma;
+	}
+
+	public void setIdioma(String idioma) {
+		this.idioma = idioma;
+	}
+
+	public boolean isAtivo() {
+		return ativo;
+	}
+
+	public void setAtivo(boolean ativo) {
+		this.ativo = ativo;
+	}
+
 	public String getNome() {
 		return (nome == null ? "" : nome);
 	}
@@ -85,7 +140,5 @@ public class Usuario implements Serializable {
 			return false;
 		return true;
 	}
-	
-	
 	
 }

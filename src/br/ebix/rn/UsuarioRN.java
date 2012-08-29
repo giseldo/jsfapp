@@ -8,14 +8,36 @@ import br.ebix.vo.Usuario;
 
 public class UsuarioRN {
 
-	public void incluirUsuario(Usuario usuario) throws ClassNotFoundException, SQLException {
+	public void incluirUsuario(Usuario usuario) {
 		UsuarioDAO auth = new UsuarioDAO();
-		auth.incluirUsuario(usuario);
+		try {
+			auth.incluirUsuario(usuario);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
-	public List<Usuario> getUsuarios() throws ClassNotFoundException, SQLException {
+	public List<Usuario> getUsuarios()  {
 		UsuarioDAO auth = new UsuarioDAO();
-		return auth.getUsuarios();
+		try {
+			return auth.getUsuarios();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	public void excluir(Usuario usuario) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void salvar(Usuario usuario) {
+		// TODO Auto-generated method stub
 		
 	}
 }

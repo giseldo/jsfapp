@@ -10,28 +10,27 @@
 <h:body>
 
 	<h:form>
+	
+		<h:inputHidden value="#{incluirUsuario.usuario.nome}" />
+		<h:inputHidden value="#{incluirUsuario.usuario.email}" />
+		<h:inputHidden value="#{incluirUsuario.usuario.senha}" />
 
-		<h1>Usuario cadastrado</h1>
+		<h1>Usuário cadastrado</h1>
 		<hr />
 		<h:link value="Home" outcome="index"></h:link>
 		<hr />
-		<h:link value="Lista Usuario Escopo Requisição"
-			outcome="listarUsuario"></h:link>
+		<h:commandButton value="Listar usuários"
+			action="#{listarUsuario.carregar}" />
 		<hr />
 		<h:commandLink action="#{incluirUsuario.mostra}"
-			value="exibe usuario novamente outro xhtml"></h:commandLink>
+			value="exibe usuario novamente outro xhtml" />
 		<hr />
-		Nome: <h:outputText
-			value="#{incluirUsuario.usuario.nome}"></h:outputText>
-		<!-- 
-		<h:inputText value="#{incluirUsuarioRequestScoped.usuario.nome}"></h:inputText>  -->
+		Nome: <h:outputText value="#{incluirUsuario.usuario.nome}" />
 		<br />
-		E-Mail: <h:outputText
-			value="#{incluirUsuario.usuario.email}"></h:outputText>
-		<!-- <h:inputText value="#{usuarioBean.email}"></h:inputText> -->
+		E-Mail: <h:outputText value="#{incluirUsuario.usuario.email}" />
 		<br />
-		Senha: <h:outputText
-			value="#{incluirUsuario.usuario.senha}"></h:outputText>
+		Senha: <h:outputText value="#{incluirUsuario.usuario.senha}" />
+		
 
 	</h:form>
 

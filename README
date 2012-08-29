@@ -7,4 +7,6 @@ Objetivo
 Notas
 -Tive que colocar a classe serializable pois estava lançando erro no console quando escopo requisicao.
 -Tive que colocar tambem serialVersionUID na classe
+-view expired exception
 
+PMD checkstyle

@@ -21,7 +21,7 @@ public class ListarUsuario implements Serializable {
 
 	private static final long serialVersionUID = 3549175577858802869L;
 
-	private List<Usuario> usuarios = new ArrayList<Usuario>();
+	// private List<Usuario> usuarios = new ArrayList<Usuario>();
 
 	private List<Usuario> usuariosSelecionado;
 
@@ -30,21 +30,9 @@ public class ListarUsuario implements Serializable {
 	private Usuario selectedUser;
 
 	public String carregar() {
-		return "listarUsuario";
-	}
-
-	public ListarUsuario() {
 		UsuarioRN userRN = new UsuarioRN();
-		try {
-			usuarios = new ArrayList<Usuario>();
-			this.usuarios = userRN.getUsuarios();
-		} catch (ClassNotFoundException e) {
-			FacesMessage msg = new FacesMessage("Classe não encontrada " + e.getMessage());
-			FacesContext.getCurrentInstance().addMessage(null, msg);
-		} catch (SQLException e) {
-			FacesMessage msg = new FacesMessage("Classe não encontrada " + e.getMessage());
-			FacesContext.getCurrentInstance().addMessage(null, msg);
-		}
+		this.usuariosModel = new UsuarioDataModel(userRN.getUsuarios());
+		return "listarUsuario";
 	}
 
 	public void onRowSelected(SelectEvent event) {
@@ -57,16 +45,6 @@ public class ListarUsuario implements Serializable {
 		FacesMessage msg = new FacesMessage("Pessoa não mais selecionada",
 				"Ola mundo completo");
 		FacesContext.getCurrentInstance().addMessage(null, msg);
-	}
-
-	public List<Usuario> getUsuarios() throws ClassNotFoundException,
-			SQLException {
-		UsuarioRN userRN = new UsuarioRN();
-		return userRN.getUsuarios();
-	}
-
-	public void setUsuarios(List<Usuario> usuarios) {
-		this.usuarios = usuarios;
 	}
 
 	public List<Usuario> getUsuariosSelecionado() {
