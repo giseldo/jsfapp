@@ -17,47 +17,53 @@ public class UsuarioDAO {
 	final String user = "root";
 	final String pass = "123456";
 
-	public void incluirUsuario(Usuario usuario) throws ClassNotFoundException, SQLException {
+	public void incluirUsuario(Usuario usuario) throws ClassNotFoundException,
+			SQLException {
 
 		Class.forName("com.mysql.jdbc.Driver");
 		Connection con = DriverManager.getConnection(db, user, pass);
-		String query = "INSERT INTO USUARIO (NOME, CPF, EMAIL, SENHA, ATIVO, IDIOMA) VALUES ( ?, ?, ?, ?, ?, ?) ";
+		String query = "INSERT INTO USUARIO (NOME, CPF, EMAIL, " +
+				"SENHA, ATIVO, IDIOMA, LOGIN, CELULAR, NASCIMENTO) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
 		PreparedStatement ps = con.prepareStatement(query);
 		ps.setString(1, usuario.getNome());
 		ps.setString(2, usuario.getCpf());
 		ps.setString(3, usuario.getEmail());
 		ps.setString(4, usuario.getSenha());
-		ps.setString(5, (usuario.isAtivo()?"True":"False"));
+		ps.setString(5, (usuario.isAtivo() ? "True" : "False"));
 		ps.setString(6, usuario.getIdioma());
+		ps.setString(7, usuario.getLogin());
+		ps.setString(8, usuario.getCelular());
+		ps.setString(9, usuario.getNascimento().toString());
 		ps.executeUpdate();
 
 	}
 
-//	public String getLoginUsuario(Usuario usuario)
-//			throws ClassNotFoundException, SQLException {
-//
-//		String query = "SELECT NOME FROM USUARIO WHERE CPF = ? AND SENHA = ?";
-//		Class.forName("com.mysql.jdbc.Driver");
-//		Connection con = DriverManager.getConnection(db, user, pass);
-//		PreparedStatement ps = con.prepareStatement(query);
-//		ps.setString(1, usuario.getCpf());
-//		ps.setString(2, usuario.getSenha());
-//		ResultSet rs = ps.executeQuery();
-//		while (rs.next()) {
-//			return rs.getString("NOME");
-//		}
-//
-//		return "";
-//
-//	}
+	// public String getLoginUsuario(Usuario usuario)
+	// throws ClassNotFoundException, SQLException {
+	//
+	// String query = "SELECT NOME FROM USUARIO WHERE CPF = ? AND SENHA = ?";
+	// Class.forName("com.mysql.jdbc.Driver");
+	// Connection con = DriverManager.getConnection(db, user, pass);
+	// PreparedStatement ps = con.prepareStatement(query);
+	// ps.setString(1, usuario.getCpf());
+	// ps.setString(2, usuario.getSenha());
+	// ResultSet rs = ps.executeQuery();
+	// while (rs.next()) {
+	// return rs.getString("NOME");
+	// }
+	//
+	// return "";
+	//
+	// }
 
-	public List<Usuario> getUsuarios() throws ClassNotFoundException, SQLException {
+	public List<Usuario> getUsuarios() throws ClassNotFoundException,
+			SQLException {
 		String query = "SELECT NOME FROM USUARIO";
 		Class.forName("com.mysql.jdbc.Driver");
 		Connection con = DriverManager.getConnection(db, user, pass);
 		PreparedStatement ps = con.prepareStatement(query);
 		ResultSet rs = ps.executeQuery();
-		
+
 		List<Usuario> listaUsuarios = new ArrayList<Usuario>();
 		Usuario user = new Usuario();
 		while (rs.next()) {
@@ -67,7 +73,7 @@ public class UsuarioDAO {
 			user.setCpf(rs.getString("CPF"));
 			user.setEmail(rs.getString("EMAIL"));
 			user.setSenha(rs.getString("SENHA"));
-			user.setAtivo(rs.getString("ATIVO").trim()=="True"?true:false);
+			user.setAtivo(rs.getString("ATIVO").trim() == "True" ? true : false);
 			user.setIdioma(rs.getString("IDIOMA"));
 			listaUsuarios.add(user);
 		}

@@ -1,19 +1,19 @@
+select * from usuariodelimiter $$
 
-CREATE DATABASE `jsfapp`
+delimiter $$
 
-CREATE  TABLE `jsfapp`.`usuario` (
+CREATE TABLE `usuario` (
+  `idusuario` int(11) unsigned NOT NULL auto_increment,
+  `nome` varchar(45) default NULL,
+  `senha` varchar(45) default NULL,
+  `email` varchar(45) default NULL,
+  `cpf` varchar(45) default NULL,
+  `ativo` varchar(45) default NULL,
+  `idioma` varchar(45) default NULL,
+  `login` varchar(45) default NULL,
+  `celular` varchar(45) default NULL,
+  `nascimento` varchar(45) default NULL,
+  PRIMARY KEY  (`idusuario`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1$$
 
-  `idusuario` INT NOT NULL ,
-
-  `nome` VARCHAR(45) NULL ,
-
-  `senha` VARCHAR(45) NULL ,
-
-  `email` VARCHAR(45) NULL ,
-
-  `cpf` VARCHAR(45) NULL ,
-
-  PRIMARY KEY (`idusuario`) );
-  
-  ALTER TABLE `jsfapp`.`usuario` CHANGE COLUMN `idusuario` `idusuario` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT  ;
 
