@@ -1,6 +1,7 @@
 package br.ebix.dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -32,52 +33,50 @@ public class UsuarioDAO {
 		ps.setString(5, (usuario.isAtivo() ? "True" : "False"));
 		ps.setString(6, usuario.getIdioma());
 		ps.setString(7, usuario.getLogin());
-		ps.setString(8, usuario.getCelular());
-		ps.setString(9, usuario.getNascimento().toString());
+		ps.setString(8, usuario.getCelular() );
+		ps.setDate(9, new Date(usuario.getNascimento().getTime() ));
 		ps.executeUpdate();
+		con.close();
 
 	}
 
-	// public String getLoginUsuario(Usuario usuario)
-	// throws ClassNotFoundException, SQLException {
-	//
-	// String query = "SELECT NOME FROM USUARIO WHERE CPF = ? AND SENHA = ?";
-	// Class.forName("com.mysql.jdbc.Driver");
-	// Connection con = DriverManager.getConnection(db, user, pass);
-	// PreparedStatement ps = con.prepareStatement(query);
-	// ps.setString(1, usuario.getCpf());
-	// ps.setString(2, usuario.getSenha());
-	// ResultSet rs = ps.executeQuery();
-	// while (rs.next()) {
-	// return rs.getString("NOME");
-	// }
-	//
-	// return "";
-	//
-	// }
-
 	public List<Usuario> getUsuarios() throws ClassNotFoundException,
 			SQLException {
-		String query = "SELECT NOME FROM USUARIO";
+		String query = "SELECT * FROM USUARIO";
 		Class.forName("com.mysql.jdbc.Driver");
 		Connection con = DriverManager.getConnection(db, user, pass);
 		PreparedStatement ps = con.prepareStatement(query);
 		ResultSet rs = ps.executeQuery();
 
 		List<Usuario> listaUsuarios = new ArrayList<Usuario>();
-		Usuario user = new Usuario();
+		
 		while (rs.next()) {
+			Usuario user = new Usuario();
 			user.setNome(rs.getString("NOME"));
-			user.setCodigo(rs.getInt("CODIGO"));
+			user.setCodigo(rs.getInt("IDUSUARIO"));
 			user.setNome(rs.getString("NOME"));
 			user.setCpf(rs.getString("CPF"));
 			user.setEmail(rs.getString("EMAIL"));
 			user.setSenha(rs.getString("SENHA"));
 			user.setAtivo(rs.getString("ATIVO").trim() == "True" ? true : false);
 			user.setIdioma(rs.getString("IDIOMA"));
+			user.setCelular(rs.getString("CELULAR"));
+			user.setLogin(rs.getString("LOGIN"));
+			user.setNascimento(rs.getDate("NASCIMENTO"));
 			listaUsuarios.add(user);
 		}
-
+		rs.close();
+		con.close();
 		return listaUsuarios;
+	}
+
+	public void excluir(Usuario usuario) throws ClassNotFoundException, SQLException {
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection con = DriverManager.getConnection(db, user, pass);
+		String query = " DELETE FROM USUARIO WHERE IDUSUARIO = ? ";
+		PreparedStatement ps = con.prepareStatement(query);
+		ps.setInt(1, usuario.getCodigo());
+		ps.executeUpdate();
+		con.close();
 	}
 }

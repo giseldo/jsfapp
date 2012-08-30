@@ -31,10 +31,11 @@ public class UsuarioBean implements Serializable {
 
 	public String editar() {
 		this.confirmaSenha = usuario.getSenha();
-		return "/publivo/usuario";
+		return "incluirUsuario";
 	}
 
 	public String salvar() {
+		this.destinoSalvar = "usuarioSucesso";
 		FacesContext context = FacesContext.getCurrentInstance();
 		if (!this.usuario.getSenha().equalsIgnoreCase(this.confirmaSenha)) {
 			context.addMessage(null, new FacesMessage(

@@ -32,8 +32,14 @@ public class UsuarioRN {
 	}
 
 	public void excluir(Usuario usuario) {
-		// TODO Auto-generated method stub
-		
+		UsuarioDAO auth = new UsuarioDAO();
+		try {
+			auth.excluir(usuario);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void salvar(Usuario usuario) {
