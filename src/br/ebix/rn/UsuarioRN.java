@@ -43,7 +43,14 @@ public class UsuarioRN {
 	}
 
 	public void salvar(Usuario usuario) {
-		// TODO Auto-generated method stub
 		
+		UsuarioDAO auth = new UsuarioDAO();
+		try {
+			auth.alterar(usuario);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 }

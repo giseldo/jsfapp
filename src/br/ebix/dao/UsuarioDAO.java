@@ -79,4 +79,34 @@ public class UsuarioDAO {
 		ps.executeUpdate();
 		con.close();
 	}
+
+	public void alterar(Usuario usuario) throws ClassNotFoundException, SQLException  {
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection con = DriverManager.getConnection(db, user, pass);
+		String query = "UPDATE USUARIO " +
+				" SET NOME = ? " +
+				" SET CPF = ? " +
+				" SET EMAIL = ? " +
+				" SET SENHA = ?" +
+				" SET ATIVO = ?" +
+				" SET IDIOMA = ? " +
+				" SET LOGIN = ? " +
+				" SET CELULAR = ? " +
+				" SET NASCIMENTO = ? " +
+				" WHERE IDUSUARIO = ? ";
+		PreparedStatement ps = con.prepareStatement(query);
+		ps.setString(1, usuario.getNome());
+		ps.setString(2, usuario.getCpf());
+		ps.setString(3, usuario.getEmail());
+		ps.setString(4, usuario.getSenha());
+		ps.setString(5, (usuario.isAtivo() ? "True" : "False"));
+		ps.setString(6, usuario.getIdioma());
+		ps.setString(7, usuario.getLogin());
+		ps.setString(8, usuario.getCelular() );
+		ps.setDate(9, new Date(usuario.getNascimento().getTime() ));
+		ps.setInt(10, usuario.getCodigo() );
+		ps.executeUpdate();
+		con.close();
+		
+	}
 }

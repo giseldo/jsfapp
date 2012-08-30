@@ -35,7 +35,6 @@ public class UsuarioBean implements Serializable {
 	}
 
 	public String salvar() {
-		this.destinoSalvar = "usuarioSucesso";
 		FacesContext context = FacesContext.getCurrentInstance();
 		if (!this.usuario.getSenha().equalsIgnoreCase(this.confirmaSenha)) {
 			context.addMessage(null, new FacesMessage(
