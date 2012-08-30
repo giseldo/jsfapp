@@ -11,19 +11,15 @@
 
 <h:body>
 
-	<h:outputLabel value="Incluir usuario" />
+	<h1>Cadastro de Usuários</h1>
 
 	<h:form id="frm">
 
-		<hr />
-		<h:link value="Home" outcome="index" />
-		<hr />
-
 		<h:messages showSummary="true"  />
-		<h:inputHidden value="usuarioBean.usuario.ativo" />
-		<h:inputHidden value="usuarioBean.usuario.codigo" />
-		<h:inputHidden value="usuarioBean.destinoSalvar" />
-
+		<h:inputHidden value="#{usuarioBean.usuario.ativo}" />
+		<h:inputHidden value="#{usuarioBean.usuario.codigo}" />
+		<h:inputHidden value="#{usuarioBean.destinoSalvar}" />
+		
 		<h:panelGrid columns="2">
 
 			<h:outputLabel value="Nome:" for="nome" />
@@ -86,7 +82,7 @@
 				maxlength="10" redisplay="true" />
 
 		</h:panelGrid>
-		<hr />
+
 		<h:commandButton action="#{usuarioBean.salvar}" value="salvar" id="btnSalvar"/>
 
 	</h:form>

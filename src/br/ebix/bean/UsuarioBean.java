@@ -26,12 +26,12 @@ public class UsuarioBean implements Serializable {
 		this.destinoSalvar = "usuarioSucesso";
 		this.usuario = new Usuario();
 		usuario.setAtivo(true);
-		return "incluirUsuario";
+		return "usuario";
 	}
 
 	public String editar() {
 		this.confirmaSenha = usuario.getSenha();
-		return "incluirUsuario";
+		return "usuario";
 	}
 
 	public String salvar() {

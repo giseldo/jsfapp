@@ -2,7 +2,7 @@
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf13452094772180" configfile="/jsfapp/WebContent/WEB-INF/faces-config.xml">
   <nodes xsi:type="pageflow:PFPage" name="exibeUsuario.xhtml" id="pf13457324327806" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf13457324460599" inlinks="pf13460708060680" path="/exibeUsuario.xhtml"/>
   <nodes xsi:type="pageflow:PFPage" name="exibeUsuario2.xhtml" id="pf134573244606212" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf13457324460599" path="/exibeUsuario2.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="incluirUsuario.xhtml" id="pf13460708060681" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf13460708060680" path="/incluirUsuario.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="incluirUsuario.xhtml" id="pf13460708060681" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf13460708060680" path="/usuario.xhtml"/>
   <links id="pf13457324460599" target="pf134573244606212" source="pf13457324327806" outcome="sucesso2"/>
   <links id="pf13460708060680" target="pf13457324327806" source="pf13460708060681" outcome="usuarioSucesso"/>
 </pageflow:Pageflow>
