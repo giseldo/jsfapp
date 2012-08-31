@@ -23,15 +23,15 @@ public class UsuarioBean implements Serializable {
 	private String destinoSalvar;
 
 	public String novo() {
-		this.destinoSalvar = "usuarioSucesso";
+		this.destinoSalvar = "/publico/usuarioSucesso";
 		this.usuario = new Usuario();
 		usuario.setAtivo(true);
-		return "usuario";
+		return "/publico/usuario";
 	}
 
 	public String editar() {
 		this.confirmaSenha = usuario.getSenha();
-		return "usuario";
+		return "/publico/usuario";
 	}
 
 	public String salvar() {

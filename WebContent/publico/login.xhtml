@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsf/core">
+
+<ui:composition template="/templates/interna.xhtml">
+
+	<ui:define name="corpo">
+
+		<h1>Login</h1>
+		<h:form id="frm">
+			<hr />
+			<h:commandButton value="Registre-se" action="#{usuarioBean.novo}"
+				id="cmdNovo" />
+			<h:panelGrid columns="2">
+				<h:outputLabel value="Login" />
+				<h:inputText value="#{usuarioBean.usuario.login}" />
+				<h:outputLabel value="Senha" />
+				<h:inputText value="#{usuarioBean.usuario.login}" />
+			</h:panelGrid>
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>
+</html>

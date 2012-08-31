@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/templates/interna.xhtml">
+
+	<ui:define name="corpo">
+
+		<h1>Cadastro de usuarios</h1>
+		<hr />
+		<h:link value="Home" outcome="index" />
+		<hr />
+		<h:form>
+			<h:messages />
+			<h:dataTable value="#{usuarioBean.lista}" var="usuario" rules="all"
+				cellpadding="5">
+
+				<f:facet name="caption">
+				Usuarios do sistema
+			</f:facet>
+
+				<f:facet name="header">
+				Listagem do usuarios
+			</f:facet>
+
+				<f:facet name="footer">
+				Final da listagem
+			</f:facet>
+
+				<h:column>
+
+					<h:commandLink action="#{usuarioBean.ativar}">
+						<h:graphicImage library="imagens"
+							name="usuario_ativo_#{usuario.ativo}.jpg" style="border:0" />
+						<f:setPropertyActionListener target="#{usuartioBean.usuario}"
+							value="#{usuario}" />
+					</h:commandLink>
+
+					<h:column>
+						<f:facet name="header">Código</f:facet>
+					#{usuario.codigo}
+				</h:column>
+
+					<h:column>
+						<h:graphicImage library="imagens"
+							name="bandeira_#{usuario.idioma}.jpg"></h:graphicImage>
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">Nome</f:facet>
+					#{usuario.nome}
+				</h:column>
+
+					<h:column>
+						<f:facet name="header">e-Mail</f:facet>
+						<a href="mailto:#{usuario.email}">#{usuario.email}</a>
+					</h:column>
+
+					<h:column>
+						<h:commandLink action="#{usuarioBean.editar}">
+							<h:graphicImage library="imagens" name="editar.jpg"
+								style="border:0" />
+							<f:setPropertyActionListener target="#{usuarioBean.usuario}"
+								value="#{usuario}" />
+						</h:commandLink>
+					</h:column>
+
+					<h:column>
+						<h:commandLink action="#{usuarioBean.excluir}"
+							onclick="if (!confirm('confirma a exclusão do usuario #{usuario.nome}')) return false; ">
+							<h:graphicImage library="imagens" name="excluir.jpg"
+								style="border:0" />
+							<f:setPropertyActionListener target="#{usuarioBean.usuario}"
+								value="#{usuario}" />
+						</h:commandLink>
+					</h:column>
+
+				</h:column>
+
+			</h:dataTable>
+
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>
+</html>
